@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMO Crowd Evacuation Game.CSharp", "MMO Crowd Evacuation Game.CSharp.csproj", "{3828440F-8237-1B31-8F72-3EC539961E2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMO Crowd Evacuation Game.CSharp.Editor", "MMO Crowd Evacuation Game.CSharp.Editor.csproj", "{5127DCCF-B63A-7878-82DD-0504BA5FFF4A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3828440F-8237-1B31-8F72-3EC539961E2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3828440F-8237-1B31-8F72-3EC539961E2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3828440F-8237-1B31-8F72-3EC539961E2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3828440F-8237-1B31-8F72-3EC539961E2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5127DCCF-B63A-7878-82DD-0504BA5FFF4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5127DCCF-B63A-7878-82DD-0504BA5FFF4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5127DCCF-B63A-7878-82DD-0504BA5FFF4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5127DCCF-B63A-7878-82DD-0504BA5FFF4A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
