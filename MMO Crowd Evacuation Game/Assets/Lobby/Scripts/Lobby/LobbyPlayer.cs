@@ -4,6 +4,7 @@ using UnityEngine.Networking;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace Prototype.NetworkLobby
 {
@@ -21,6 +22,8 @@ namespace Prototype.NetworkLobby
         public Button waitingPlayerButton;
         public Button removePlayerButton;
 
+        public Dropdown teamnumInp;
+
         public GameObject localIcone;
         public GameObject remoteIcone;
 
@@ -29,6 +32,8 @@ namespace Prototype.NetworkLobby
         public string playerName = "";
         [SyncVar(hook = "OnMyColor")]
         public Color playerColor = Color.white;
+        [SyncVar(hook = "OnMyTeam")]
+        public int teamnnum = 0;
 
         public Color OddRowColor = new Color(250.0f / 255.0f, 250.0f / 255.0f, 250.0f / 255.0f, 1.0f);
         public Color EvenRowColor = new Color(180.0f / 255.0f, 180.0f / 255.0f, 180.0f / 255.0f, 1.0f);
@@ -63,6 +68,7 @@ namespace Prototype.NetworkLobby
             //setup the player data on UI. The value are SyncVar so the player
             //will be created with the right value currently on server
             OnMyName(playerName);
+            OnMyTeam(teamnnum);
             OnMyColor(playerColor);
         }
 
@@ -89,6 +95,7 @@ namespace Prototype.NetworkLobby
         void SetupOtherPlayer()
         {
             nameInput.interactable = false;
+            teamnumInp.interactable = false;
             removePlayerButton.interactable = NetworkServer.active;
 
             ChangeReadyButtonColor(NotReadyColor);
@@ -102,6 +109,7 @@ namespace Prototype.NetworkLobby
         void SetupLocalPlayer()
         {
             nameInput.interactable = true;
+            teamnumInp.interactable = true;
             remoteIcone.gameObject.SetActive(false);
             localIcone.gameObject.SetActive(true);
 
@@ -122,9 +130,13 @@ namespace Prototype.NetworkLobby
             //we switch from simple name display to name input
             colorButton.interactable = true;
             nameInput.interactable = true;
+            teamnumInp.interactable = true;
 
             nameInput.onEndEdit.RemoveAllListeners();
             nameInput.onEndEdit.AddListener(OnNameChanged);
+
+            teamnumInp.onValueChanged.RemoveAllListeners();
+            teamnumInp.onValueChanged.AddListener(OnTeamChanged);
 
             colorButton.onClick.RemoveAllListeners();
             colorButton.onClick.AddListener(OnColorClicked);
@@ -162,6 +174,7 @@ namespace Prototype.NetworkLobby
                 readyButton.interactable = false;
                 colorButton.interactable = false;
                 nameInput.interactable = false;
+                teamnumInp.interactable = false;
             }
             else
             {
@@ -173,6 +186,7 @@ namespace Prototype.NetworkLobby
                 readyButton.interactable = isLocalPlayer;
                 colorButton.interactable = isLocalPlayer;
                 nameInput.interactable = isLocalPlayer;
+                teamnumInp.interactable = isLocalPlayer;
             }
         }
 
@@ -187,6 +201,12 @@ namespace Prototype.NetworkLobby
         {
             playerName = newName;
             nameInput.text = playerName;
+        }
+
+        public void OnMyTeam(int teamno)
+        {
+            teamnnum = teamno;
+            teamnumInp.value = teamnnum;
         }
 
         public void OnMyColor(Color newColor)
@@ -212,6 +232,11 @@ namespace Prototype.NetworkLobby
         public void OnNameChanged(string str)
         {
             CmdNameChanged(str);
+        }
+
+        public void OnTeamChanged(int teamno)
+        {
+            CmdTeamChanged(teamno);
         }
 
         public void OnRemovePlayerClick()
@@ -289,6 +314,12 @@ namespace Prototype.NetworkLobby
         public void CmdNameChanged(string name)
         {
             playerName = name;
+        }
+
+        [Command]
+        public void CmdTeamChanged(int teamno)
+        {
+            teamnnum = teamno;
         }
 
         //Cleanup thing when get destroy (which happen when client kick or disconnect)

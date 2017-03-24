@@ -138,6 +138,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Area730\UpdateManager\Editor\SimpleJSON.cs" />
+    <Compile Include="Assets\Area730\UpdateManager\Editor\UpdatesWindow.cs" />
     <Compile Include="Assets\Core\Libraries\RootMotion\FinalIK\BipedIK\Editor\BipedIKInspector.cs" />
     <Compile Include="Assets\Core\Libraries\RootMotion\FinalIK\BipedIK\Editor\BipedIKSolversInspector.cs" />
     <Compile Include="Assets\Core\Libraries\RootMotion\FinalIK\Constraints\Editor\ConstraintsInspector.cs" />

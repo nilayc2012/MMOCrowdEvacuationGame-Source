@@ -1,0 +1,128 @@
+fileFormatVersion: 2
+guid: 5ec8aa8cad89305478b901b9312dfe76
+timeCreated: 1455220659
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: abdomen
+    100002: abdomen2
+    100004: ASPants
+    100006: //RootNode
+    100008: ASPants.Shape_LOD0
+    100010: ASPants.Shape_LOD1
+    100012: ASPants.Shape_LOD2
+    100014: ASPants.Shape_LOD3
+    100016: chest
+    100018: Genesis 2 Male
+    100020: hip
+    100022: lFoot
+    100024: lShin
+    100026: lThigh
+    100028: pelvis
+    100030: rFoot
+    100032: rShin
+    100034: rThigh
+    100036: Genesis2Male
+    400000: abdomen
+    400002: abdomen2
+    400004: //RootNode
+    400006: ASPants
+    400008: ASPants.Shape_LOD0
+    400010: ASPants.Shape_LOD1
+    400012: ASPants.Shape_LOD2
+    400014: ASPants.Shape_LOD3
+    400016: chest
+    400018: Genesis 2 Male
+    400020: hip
+    400022: lFoot
+    400024: lShin
+    400026: lThigh
+    400028: pelvis
+    400030: rFoot
+    400032: rShin
+    400034: rThigh
+    400036: Genesis2Male
+    4300000: ASPants.Shape_LOD0
+    4300002: ASPants.Shape_LOD1
+    4300004: ASPants.Shape_LOD2
+    4300006: ASPants.Shape_LOD3
+    9500000: //RootNode
+    11400000: ASPants
+    11400002: ASPants
+    11400004: ASPants.Shape_LOD0
+    11400006: ASPants.Shape_LOD1
+    11400008: ASPants.Shape_LOD2
+    11400010: ASPants.Shape_LOD3
+    13700000: ASPants.Shape_LOD0
+    13700002: ASPants.Shape_LOD1
+    13700004: ASPants.Shape_LOD2
+    13700006: ASPants.Shape_LOD3
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages:
+    - 0.25
+    - 0.125
+    - 0.0625
+    - 0.01
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

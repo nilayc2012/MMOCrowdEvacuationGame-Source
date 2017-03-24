@@ -269,6 +269,7 @@
     <Compile Include="Assets\MyBehaviorTree1.cs" />
     <Compile Include="Assets\NetworkLobbyHook.cs" />
     <Compile Include="Assets\PlayerController1.cs" />
+    <Compile Include="Assets\PlayerControllerSoldier.cs" />
     <Compile Include="Assets\PlayerMotor.cs" />
     <Compile Include="Assets\PlayerSyncRotation.cs" />
     <Compile Include="Assets\SetGameMetaScript.cs" />

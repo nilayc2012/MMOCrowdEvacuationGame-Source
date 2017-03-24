@@ -1,15 +1,19 @@
-﻿<Properties StartupItem="MMO Crowd Evacuation Game.CSharp.csproj">
+﻿<Properties StartupItem="MMO Crowd Evacuation Game.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\GameMetaScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\GameControllerCrowdEvac.cs">
     <Files>
       <File FileName="Assets\Core\Scripts\Steering\UnitySteeringController.cs" Line="1" Column="1" />
-      <File FileName="Assets\PlayerController1.cs" Line="3" Column="26" />
+      <File FileName="Assets\PlayerController1.cs" Line="1" Column="1" />
       <File FileName="Assets\Lobby\Scripts\Lobby\LobbyMainMenu.cs" Line="1" Column="1" />
       <File FileName="Assets\Lobby\Scripts\Lobby\LobbyPlayerList.cs" Line="1" Column="1" />
       <File FileName="Assets\ButtonTasks.cs" Line="1" Column="1" />
       <File FileName="Assets\metadataloader.cs" Line="1" Column="1" />
       <File FileName="Assets\WinnerCriteria.cs" Line="1" Column="1" />
       <File FileName="Assets\GameMetaScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Core\Scripts\Controllers\_NavigatorScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\QuadraPlayerController.cs" Line="1" Column="1" />
+      <File FileName="Assets\NetworkLobbyHook.cs" Line="1" Column="1" />
+      <File FileName="Assets\GameControllerCrowdEvac.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

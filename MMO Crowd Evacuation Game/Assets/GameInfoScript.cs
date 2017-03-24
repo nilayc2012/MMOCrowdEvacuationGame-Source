@@ -3,7 +3,7 @@ using System.Collections;
 
 public class GameInfoScript : MonoBehaviour {
 
-    public string gname, gid, envid, ruleid, minp, maxp, ownerId, game_desc;
+    public string gname, gid, envid, ruleid, minp, maxp, ownerId, game_desc, gameoverid, diffid, ctypeid;
     // Use this for initialization
     void Start () {
 	

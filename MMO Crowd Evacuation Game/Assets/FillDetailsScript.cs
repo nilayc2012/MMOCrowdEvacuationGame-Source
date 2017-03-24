@@ -51,13 +51,19 @@ public class FillDetailsScript : MonoBehaviour {
 
                     gameobj.GetComponent<GameInfoScript>().ruleid = result[3];
 
-                    gameobj.GetComponent<GameInfoScript>().minp = result[4];
+                    gameobj.GetComponent<GameInfoScript>().gameoverid = result[4];
 
-                    gameobj.GetComponent<GameInfoScript>().maxp = result[5];
+                    gameobj.GetComponent<GameInfoScript>().diffid = result[5];
 
-                    gameobj.GetComponent<GameInfoScript>().ownerId = result[6];
+                    gameobj.GetComponent<GameInfoScript>().ctypeid = result[6];
 
-                    gameobj.GetComponent<GameInfoScript>().game_desc = result[7];
+                    gameobj.GetComponent<GameInfoScript>().minp = result[7];
+
+                    gameobj.GetComponent<GameInfoScript>().maxp = result[8];
+
+                    gameobj.GetComponent<GameInfoScript>().ownerId = result[9];
+
+                    gameobj.GetComponent<GameInfoScript>().game_desc = result[10];
                     gameobj.SetActive(true);
                 }
             }

@@ -7,7 +7,7 @@ using Prototype.NetworkLobby;
 
 public class GameMetaScript : MonoBehaviour {
 
-    public string gname, gid, envid, ruleid, minp, maxp,ownerId;
+    public string gname, gid, envid, ruleid, minp, maxp,ownerId, game_desc, gameoverid, diffid, ctypeid;
 
 
     void Awake()

@@ -1,0 +1,127 @@
+fileFormatVersion: 2
+guid: 71b9cd254584e54459ac492ab533f988
+timeCreated: 1462202115
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Genesis 2 Male
+    100002: hip
+    100004: lFoot
+    100006: lShin
+    100008: lThigh
+    100010: lToe
+    100012: pelvis
+    100014: rFoot
+    100016: rShin
+    100018: rThigh
+    100020: rToe
+    100022: UMLeftShoe
+    100024: //RootNode
+    100026: UMLeftShoe.Shape_LOD0
+    100028: UMLeftShoe.Shape_LOD1
+    100030: UMLeftShoe.Shape_LOD2
+    100032: UMLeftShoe.Shape_LOD3
+    100034: Genesis2Male
+    400000: Genesis 2 Male
+    400002: hip
+    400004: lFoot
+    400006: lShin
+    400008: lThigh
+    400010: lToe
+    400012: pelvis
+    400014: rFoot
+    400016: rShin
+    400018: rThigh
+    400020: rToe
+    400022: //RootNode
+    400024: UMLeftShoe
+    400026: UMLeftShoe.Shape_LOD0
+    400028: UMLeftShoe.Shape_LOD1
+    400030: UMLeftShoe.Shape_LOD2
+    400032: UMLeftShoe.Shape_LOD3
+    400034: Genesis2Male
+    4300000: UMLeftShoe.Shape_LOD0
+    4300002: UMLeftShoe.Shape_LOD1
+    4300004: UMLeftShoe.Shape_LOD2
+    4300006: UMLeftShoe.Shape_LOD3
+    9500000: //RootNode
+    11400000: UMLeftShoe
+    11400002: UMLeftShoe
+    11400004: UMLeftShoe.Shape_LOD0
+    11400006: UMLeftShoe.Shape_LOD1
+    11400008: UMLeftShoe.Shape_LOD2
+    11400010: UMLeftShoe.Shape_LOD3
+    13700000: UMLeftShoe.Shape_LOD0
+    13700002: UMLeftShoe.Shape_LOD1
+    13700004: UMLeftShoe.Shape_LOD2
+    13700006: UMLeftShoe.Shape_LOD3
+    20500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages:
+    - 0.25
+    - 0.125
+    - 0.0625
+    - 0.01
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

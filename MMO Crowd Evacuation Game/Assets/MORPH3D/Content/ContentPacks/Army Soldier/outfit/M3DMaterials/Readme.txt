@@ -1,0 +1,1 @@
+To display the beaded chain for the Dog Tags please apply the ASDogTags material to your ASTeeShirt.

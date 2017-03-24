@@ -1,0 +1,103 @@
+fileFormatVersion: 2
+guid: 2fd80cba4e5420c4f94ac87bff6c4717
+timeCreated: 1458234116
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: abdomen
+    100002: abdomen2
+    100004: //RootNode
+    100006: Brit_CAP.Shape
+    100008: BritCap
+    100010: chest
+    100012: Genesis 2 Male
+    100014: head
+    100016: hip
+    100018: lCollar
+    100020: neck
+    100022: rCollar
+    100024: Genesis2Male
+    400000: abdomen
+    400002: abdomen2
+    400004: //RootNode
+    400006: Brit_CAP.Shape
+    400008: BritCap
+    400010: chest
+    400012: Genesis 2 Male
+    400014: head
+    400016: hip
+    400018: lCollar
+    400020: neck
+    400022: rCollar
+    400024: Genesis2Male
+    4300000: Brit_CAP.Shape
+    9500000: //RootNode
+    11400000: Brit_CAP.Shape
+    11400002: BritCap
+    11400004: BritCap
+    13700000: Brit_CAP.Shape
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -116,8 +116,34 @@ public class ButtonTasks : MonoBehaviour {
         gmc.minp = gic.minp;
         gmc.maxp = gic.maxp;
         gmc.ownerId = gic.ownerId;
-
-        SceneManager.LoadScene("lobbyscene");
+        gmc.gameoverid = gic.gameoverid;
+        gmc.diffid = gic.diffid;
+        gmc.ctypeid = gic.ctypeid;
+        
+        if (gmc.ctypeid != "4")
+        {
+            if(gmc.ruleid=="3" || gmc.ruleid=="4")
+            {
+                SceneManager.LoadScene("lobbyscene"+ gmc.ruleid);
+            }
+            else
+            {
+                SceneManager.LoadScene("lobbyscene");
+            }
+            
+        }
+        else
+        {
+            if (gmc.ruleid == "3" || gmc.ruleid == "4")
+            {
+                SceneManager.LoadScene("Scene1" + gmc.ruleid + "2" + gmc.ctypeid);
+            }
+            else
+            {
+                SceneManager.LoadScene("Scene1" + gmc.ruleid + gmc.gameoverid + gmc.ctypeid);
+            }
+        }
+        
 
     }
 

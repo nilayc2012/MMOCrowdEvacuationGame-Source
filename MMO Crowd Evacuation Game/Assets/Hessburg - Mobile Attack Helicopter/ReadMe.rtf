@@ -1,0 +1,143 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red66\green111\blue175;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww21760\viewh22960\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs26 \cf0 \
+
+\b\fs38 Mobile Attack Helicopter of the Vietnam War Era V1.0
+\b0\fs26 \
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\fs30 \cf0 3D model of an attack helicopter of the Vietnam War era. \
+\
+Please note: This is the 
+\b mobile only version
+\b0  \'96 the desktop version (including this mobile version) is available on the Unity Asset Store: 
+\fs28 \cf2 \expnd0\expndtw0\kerning0
+\ul \ulc2 http://u3d.as/oyP
+\fs26 \cf0 \kerning1\expnd0\expndtw0 \ulnone \
+\
+
+\b Mobile Versions:\
+
+\b0 \
+	\ul NASA Variant\ulnone  without any weapons. Has a demilitarized gun pod.\
+  	Consists of 3 meshes: hull, main rotor, tail rotor. \
+	Unity Editor Statistics (unlit): Tris: 3.6k, Verts: 4.4k\
+\
+	\ul Arctic Color Scheme Variant\ulnone  without rocket pods. \
+	Consists of 3 meshes: hull, main rotor, tail rotor. \
+	Unity Editor Statistics (unlit): Tris: 3.7k, Verts: 3.6k\
+\
+	\ul Army Variant\ulnone , fully armed. \
+	Consists of 3 meshes: hull, main rotor, tail rotor. \
+	Unity Editor Statistics (unlit): Tris: 4.5k, Verts: 4.4k\
+\
+
+\b Desktop Versions:\
+
+\b0 \
+	
+\b\fs30 available on the Unity Asset Store:
+\b0  
+\fs28 \cf2 \expnd0\expndtw0\kerning0
+\ul http://u3d.as/oyP
+\fs26 \cf0 \kerning1\expnd0\expndtw0 \ulnone \
+\
+
+\b Level of Detail:
+\b0 \
+The mobile versions have rotatable rotors only. Windows are opaque and can\'92t be opened, guns of the mobile version are not rotatable. NASA and Arctic Variant are late versions with the tail rotor on the right side, Army Variant is early version with tail rotor on the left side. \
+\
+
+\b Textures, Materials & Shaders:\
+
+\b0 \
+\'96 each 2048x2048\
+\'96 8 different prepared colors schemes: Standard/Vietnam (4 slightly different camos), desert, arctic high visibility scheme, NASA and Marines.\
+\'96 Mobile Standard: Albedo texture, smoothness, metallic and ambient occlusion map, normal map.\
+\'96 Mobile Bumped Specular: Main texture composition with gloss map, normal map.\
+\'96 
+\b Dark & bright window variants (default is dark \'96 see texture folders)
+\b0 \
+\
+This asset comes with a simple presentation scene and a basic example how to control rotation of rotors from a script. The script also handles acceleration of the rotor and syncs the loop of a helicopter basic sound file to the rotation speed.\
+\
+\
+
+\b\fs30 Helper Script: 
+\i AH_AnimationHelper.js
+\i0\b0\fs26 \
+\
+
+\b Description:
+\b0 \
+\
+	Helper Script for the
+\i  Attack Helicopter of the Vietnam Era
+\i0  Model to control the rotation of the Rotors (and optionally their acceleration).\
+	It plays a roughly synchronized helicopter sound and controls the particle system of the exhaust based on the current RPM of the rotors.\
+\
+
+\b Usage:
+\b0 \
+\
+	\'96 Mobile Models: \
+		Add 
+\i AH_AnimationHelper.js
+\i0  to a Attack Helicopter mobile model.\
+		Set the transforms of the Main and Tail Rotor to the script in the inspector. \
+		The Mobile Model does not have any moveable parts (except of the rotors) and it has no LODs. \
+\
+	\'96 Access the script instance from another script to control the rotors, windows or guns. \
+		(C# Users: Place the 
+\i AH_AnimationHelper.js
+\i0  in the Standard Assets or Plugins folder if you want to access the script from C#)\
+\
+
+\b Variables:
+\b0 \
+\
+	
+\i AH_AnimationHelper.engineOn
+\i0  : boolean\
+	\'96 turns helicopter engine on (true) and off (false)\
+\
+	
+\i AH_AnimationHelper.targetRPM
+\i0  : float\
+	\'96 range: 0.3 (low/idle RPM) to 1.0 (full 1460 RPM)\
+\
+	
+\i AH_AnimationHelper.useAcceleration
+\i0  : boolean\
+	\'96 a very basic but useful rotor acceleration and decelleration\
+\
+	
+\i AH_AnimationHelper.currentRPM 
+\i0 : float\
+	\'96 range: 0.0 (zero RPM) to 1.0 (full 1460 RPM) - you could set it to a certain RPM while 
+\i useAcceleration
+\i0  is true. Or read it if you need to know the current RPM (which can differ from 
+\i targetRPM
+\i0  if 
+\i useAcceleration
+\i0  is true)\
+	\
+\
+
+\fs30 Support:
+\fs26 	\
+\
+
+\b E-Mail: 
+\b0 assets.support@hessburg.com\
+
+\b Website: 
+\b0 http://www.hessburg.com\
+\
+\
+}

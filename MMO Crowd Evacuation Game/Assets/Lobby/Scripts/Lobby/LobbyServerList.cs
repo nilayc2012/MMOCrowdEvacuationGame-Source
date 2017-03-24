@@ -5,6 +5,7 @@ using UnityEngine.Networking.Match;
 using System.Collections;
 using System.Collections.Generic;
 
+
 namespace Prototype.NetworkLobby
 {
     public class LobbyServerList : MonoBehaviour
@@ -54,11 +55,15 @@ namespace Prototype.NetworkLobby
 
 			for (int i = 0; i < matches.Count; ++i)
 			{
-                GameObject o = Instantiate(serverEntryPrefab) as GameObject;
 
-				o.GetComponent<LobbyServerEntry>().Populate(matches[i], lobbyManager, (i % 2 == 0) ? OddServerColor : EvenServerColor);
+                if (matches[i].name == GameObject.Find("GameMetaData").GetComponent<GameMetaScript>().gname)
+                {
+                    GameObject o = Instantiate(serverEntryPrefab) as GameObject;
 
-				o.transform.SetParent(serverListRect, false);
+                    o.GetComponent<LobbyServerEntry>().Populate(matches[i], lobbyManager, (i % 2 == 0) ? OddServerColor : EvenServerColor);
+
+                    o.transform.SetParent(serverListRect, false);
+                }
             }
         }
 

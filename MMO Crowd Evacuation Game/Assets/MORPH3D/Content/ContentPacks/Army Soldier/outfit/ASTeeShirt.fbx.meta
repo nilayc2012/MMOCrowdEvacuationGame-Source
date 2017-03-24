@@ -1,0 +1,143 @@
+fileFormatVersion: 2
+guid: f318962c452aef544a350be8b4fc640f
+timeCreated: 1461950616
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: abdomen
+    100002: abdomen2
+    100004: //RootNode
+    100006: ASTeeShirt
+    100008: ASTeeShirt.Shape_LOD1
+    100010: ASTeeShirt.Shape_LOD2
+    100012: ASTeeShirt.Shape_LOD3
+    100014: ASTeeShirt.Shape_LOD4
+    100016: chest
+    100018: Genesis 2 Male
+    100020: head
+    100022: hip
+    100024: lCollar
+    100026: lowerJaw
+    100028: lPectoral
+    100030: lShldr
+    100032: lThigh
+    100034: neck
+    100036: pelvis
+    100038: rCollar
+    100040: rPectoral
+    100042: rShldr
+    100044: rThigh
+    100046: Genesis2Male
+    100048: ASTeeShirt.Shape_LOD0
+    400000: abdomen
+    400002: abdomen2
+    400004: ASTeeShirt
+    400006: //RootNode
+    400008: ASTeeShirt.Shape_LOD1
+    400010: ASTeeShirt.Shape_LOD2
+    400012: ASTeeShirt.Shape_LOD3
+    400014: ASTeeShirt.Shape_LOD4
+    400016: chest
+    400018: Genesis 2 Male
+    400020: head
+    400022: hip
+    400024: lCollar
+    400026: lowerJaw
+    400028: lPectoral
+    400030: lShldr
+    400032: lThigh
+    400034: neck
+    400036: pelvis
+    400038: rCollar
+    400040: rPectoral
+    400042: rShldr
+    400044: rThigh
+    400046: Genesis2Male
+    400048: ASTeeShirt.Shape_LOD0
+    4300000: ASTeeShirt.Shape_LOD1
+    4300002: ASTeeShirt.Shape_LOD2
+    4300004: ASTeeShirt.Shape_LOD3
+    4300006: ASTeeShirt.Shape_LOD4
+    4300008: ASTeeShirt.Shape_LOD0
+    9500000: //RootNode
+    11400000: ASTeeShirt
+    11400002: ASTeeShirt
+    11400004: ASTeeShirt.Shape_LOD1
+    11400006: ASTeeShirt.Shape_LOD2
+    11400008: ASTeeShirt.Shape_LOD3
+    11400010: ASTeeShirt.Shape_LOD4
+    11400012: ASTeeShirt.Shape_LOD0
+    13700000: ASTeeShirt.Shape_LOD1
+    13700002: ASTeeShirt.Shape_LOD2
+    13700004: ASTeeShirt.Shape_LOD3
+    13700006: ASTeeShirt.Shape_LOD4
+    13700008: ASTeeShirt.Shape_LOD0
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages:
+    - 0.25
+    - 0.125
+    - 0.0625
+    - 0.01
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

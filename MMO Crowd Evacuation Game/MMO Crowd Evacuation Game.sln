@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2015
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMO Crowd Evacuation Game.CSharp", "MMO Crowd Evacuation Game.CSharp.csproj", "{3828440F-8237-1B31-8F72-3EC539961E2C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMO Crowd Evacuation Game.Plugins", "MMO Crowd Evacuation Game.Plugins.csproj", "{981CBD24-FB9F-6453-5A59-B5FF5F38E44C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMO Crowd Evacuation Game.CSharp.Editor", "MMO Crowd Evacuation Game.CSharp.Editor.csproj", "{5127DCCF-B63A-7878-82DD-0504BA5FFF4A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMO Crowd Evacuation Game", "MMO Crowd Evacuation Game.csproj", "{EA23D445-3B68-F278-E624-9C64BE150C55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMO Crowd Evacuation Game.Editor", "MMO Crowd Evacuation Game.Editor.csproj", "{3C8CFADD-CD60-7B04-76B5-E294F1158F11}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,14 +13,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3828440F-8237-1B31-8F72-3EC539961E2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3828440F-8237-1B31-8F72-3EC539961E2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3828440F-8237-1B31-8F72-3EC539961E2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3828440F-8237-1B31-8F72-3EC539961E2C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5127DCCF-B63A-7878-82DD-0504BA5FFF4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5127DCCF-B63A-7878-82DD-0504BA5FFF4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5127DCCF-B63A-7878-82DD-0504BA5FFF4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5127DCCF-B63A-7878-82DD-0504BA5FFF4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{981CBD24-FB9F-6453-5A59-B5FF5F38E44C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{981CBD24-FB9F-6453-5A59-B5FF5F38E44C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{981CBD24-FB9F-6453-5A59-B5FF5F38E44C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{981CBD24-FB9F-6453-5A59-B5FF5F38E44C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA23D445-3B68-F278-E624-9C64BE150C55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA23D445-3B68-F278-E624-9C64BE150C55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA23D445-3B68-F278-E624-9C64BE150C55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA23D445-3B68-F278-E624-9C64BE150C55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C8CFADD-CD60-7B04-76B5-E294F1158F11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C8CFADD-CD60-7B04-76B5-E294F1158F11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C8CFADD-CD60-7B04-76B5-E294F1158F11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C8CFADD-CD60-7B04-76B5-E294F1158F11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

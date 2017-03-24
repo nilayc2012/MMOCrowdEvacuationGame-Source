@@ -16,6 +16,8 @@ public class PlayerController1 : NetworkBehaviour
     [SyncVar]
     public string pname = "player";
 
+    public bool localplayer = false;
+
     [SyncVar]
     public Color playerColor = Color.red;
 
@@ -35,8 +37,17 @@ public class PlayerController1 : NetworkBehaviour
 
     //public GameObject winnerpanel;
 
-
     public bool userend;
+
+    float speed = 10.0f;
+
+    public Pos startpos,endpos;
+
+    public int score;
+
+    public string scorerType;
+
+    public string scoretype;
 
     void Start()
     {
@@ -44,7 +55,8 @@ public class PlayerController1 : NetworkBehaviour
         shirtcolor.material.color = playerColor;
         if (isLocalPlayer)
         {
-            
+            startpos = new Pos(transform.position.x, transform.position.z);
+            localplayer = true;
             // references
             refPlayerAnim = GetComponent<Animator>();
             refCollider = GetComponent<CapsuleCollider>();
@@ -58,39 +70,34 @@ public class PlayerController1 : NetworkBehaviour
 
     void FixedUpdate()
     {
+            text.text = pname;
+            if (!isLocalPlayer)
+            {
+                return;
+            }
 
-        
-        text.text = pname;
-        if (!isLocalPlayer)
-        {
-            return;
-        }
+            localplayer = true;
 
-        if (GameObject.Find("Prize") != null)
-        {
-            if (GameObject.Find("Prize").GetComponent<CollisionDetector>().end)
+            if (userend)
             {
                 refPlayerAnim.SetFloat("Speed", 0.0f);
                 refPlayerAnim.SetFloat("Direction", 0.0f);
+
+                if (GameObject.Find("bottompanel")==null)
+                {
+                    GameObject[] objects = Resources.FindObjectsOfTypeAll(typeof(GameObject)) as GameObject[];
+
+                    foreach (GameObject g in objects)
+                    {
+                        if (g.name.Equals("bottompanel"))
+                        {
+                            g.SetActive(true);
+                            break;
+                        }
+                    }
+                }
                 return;
             }
-        }
-        else if(userend)
-        {
-            refPlayerAnim.SetFloat("Speed", 0.0f);
-            refPlayerAnim.SetFloat("Direction", 0.0f);
-            GameObject[] objects = Resources.FindObjectsOfTypeAll(typeof(GameObject)) as GameObject[];
-
-            foreach (GameObject g in objects)
-            {
-                if (g.name.Equals("bottompanel"))
-                {
-                    g.SetActive(true);
-                    break;
-                }
-            }
-            return;
-        }
 
             Camera.main.transform.position = this.transform.position - this.transform.forward * 60 + this.transform.up * 40;
             Camera.main.transform.LookAt(this.transform.position + this.transform.forward * 10 + this.transform.up * 15);
@@ -108,6 +115,7 @@ public class PlayerController1 : NetworkBehaviour
                 {
                     vert = 6.005136f + vert;
                 }
+
             }
             else if (vert < 0)
             {
@@ -118,8 +126,10 @@ public class PlayerController1 : NetworkBehaviour
                 refPlayerAnim.SetBool("B_StepBackTrigger", false);
             }
 
-            //this.GetComponent<Rigidbody>().AddForce(new Vector3(horiz, 0.0f, vert));
+            //his.GetComponent<Rigidbody>().AddForce(new Vector3(horiz, 0.0f, vert));
             // vertical input axis
+            //Vector3 movement = new Vector3(vert, 0.0f, vert);
+            //this.GetComponent<Rigidbody>().velocity = movement* speed;
             refPlayerAnim.SetFloat("Speed", vert);
             refPlayerAnim.SetFloat("Direction", horiz * 180f);
 
@@ -135,7 +145,7 @@ public class PlayerController1 : NetworkBehaviour
             //refPlayerAnim.speed = animSpeed;                                // animation speed variable
         }
 
-        
+
 
     
 

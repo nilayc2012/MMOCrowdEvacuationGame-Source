@@ -6,6 +6,10 @@ using Prototype.NetworkLobby;
 public class WinnerCriteria : MonoBehaviour {
 
     GameObject[] agents,aiagents;
+
+    public GameObject exitbutton;
+
+    public GameObject finalPanel;
     bool once;
 	// Use this for initialization
 	void Start () {
@@ -16,22 +20,26 @@ public class WinnerCriteria : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
         if (!once)
         {
             int count = 0, count1 = 0;
+            agents = GameObject.FindGameObjectsWithTag("multiplayer");
             foreach (GameObject agent in agents)
             {
                 if (agent.GetComponent<PlayerController1>().userend)
                 {
+                    if(agent.GetComponent<PlayerController1>().localplayer)
+                    {
+                        finalPanel.SetActive(true);
+                    }
                     count++;
 
                 }
-                count1++;
             }
 
-            foreach (GameObject agent in aiagents)
+          /*  foreach (GameObject agent in aiagents)
             {
                 if (agent.GetComponent<CompleteChecker>().userend)
                 {
@@ -39,20 +47,11 @@ public class WinnerCriteria : MonoBehaviour {
 
                 }
                 count1++;
-            }
+            }*/
 
-            if (count == count1)
+            if (count == agents.Length)
             {
-                GameObject[] objects = Resources.FindObjectsOfTypeAll(typeof(GameObject)) as GameObject[];
-
-                foreach (GameObject g in objects)
-                {
-                    if (g.name.Equals("exit"))
-                    {
-                        g.SetActive(true);
-                        break;
-                    }
-                }
+                exitbutton.SetActive(true);
                 once = true;
             }
         }
@@ -61,7 +60,8 @@ public class WinnerCriteria : MonoBehaviour {
 
     public void exitGame()
     {
-         GameObject.Find("LobbyManager").GetComponent<LobbyManager>().GoBackButton();
+        //GameObject.Find("LobbyManager").GetComponent<LobbyManager>().GoBackButton();
+        SceneManager.LoadScene("gameselector");
 
     }
 }
