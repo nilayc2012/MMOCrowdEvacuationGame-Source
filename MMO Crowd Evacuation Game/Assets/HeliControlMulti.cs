@@ -12,10 +12,8 @@ public class HeliControlMulti : NetworkBehaviour {
     [SyncVar]
     public string pname = "player";
 
-    [SyncVar]
     public GameObject soldierObj;
 
-    [SyncVar]
     public GameObject detectedBomb;
 
     public bool userend;
@@ -30,24 +28,74 @@ public class HeliControlMulti : NetworkBehaviour {
 
     public string scoretype;
 
+    //[SyncVar(hook = "OnChangeEngineStatus")]
+    //public bool engineOn;
+
+    public GameObject maincam;
+    void Awake()
+    {
+        if(GameObject.Find("GameController")==null)
+        {
+            GameObject[] objects = Resources.FindObjectsOfTypeAll(typeof(GameObject)) as GameObject[];
+
+            foreach (GameObject g in objects)
+            {
+                if (g.name == "GameController")
+                {
+                    g.SetActive(true);
+                    break;
+                }
+            }
+        }
+
+        if (GameObject.Find("StartPosGenerator") == null)
+        {
+            GameObject[] objects = Resources.FindObjectsOfTypeAll(typeof(GameObject)) as GameObject[];
+
+            foreach (GameObject g in objects)
+            {
+                if (g.name == "StartPosGenerator")
+                {
+                    g.SetActive(true);
+                    break;
+                }
+            }
+        }
+    }
     // Use this for initialization
     void Start()
     {
+        //engineOn = this.GetComponent<AH_AnimationHelper>().engineOn;
         startpos = new Pos(transform.position.x, transform.position.z);
-        GameObject soldierobjt = Instantiate(soldier);
-        GameObject planeobj = GameObject.Find("soldierplane");
-        float x = UnityEngine.Random.Range(planeobj.transform.position.x - planeobj.transform.localScale.x * 10 / 2, planeobj.transform.position.x + planeobj.transform.localScale.x * 10 / 2);
-        float z = UnityEngine.Random.Range(planeobj.transform.position.z - planeobj.transform.localScale.z * 10 / 2, planeobj.transform.position.z + planeobj.transform.localScale.z * 10 / 2);
-        soldierobjt.transform.position = new Vector3(x, 0.1f, z);
-        soldierobjt.SetActive(true);
 
-        this.GetComponent<HeliControlMulti>().soldierObj = soldierobjt;
-        soldierobjt.GetComponent<BombDefuserMulti>().helicopter = this.gameObject;
+        GameObject planeobj = GameObject.Find("soldierplane");
+        float x = UnityEngine.Random.Range(planeobj.transform.position.x - planeobj.transform.localScale.x / 2, planeobj.transform.position.x + planeobj.transform.localScale.x / 2);
+        float z = UnityEngine.Random.Range(planeobj.transform.position.z - planeobj.transform.localScale.z / 2, planeobj.transform.position.z + planeobj.transform.localScale.z / 2);
+
+        /*       if (GameObject.Find("GameController").GetComponent<GameControllerBSMulti>() != null)
+               {
+                   soldierObj = Instantiate(GameObject.Find("GameController").GetComponent<GameControllerBSMulti>().soldier, new Vector3(x, 0.1f, z),new Quaternion(0,0,0,0));
+               }
+               else if (GameObject.Find("GameController").GetComponent<GameControllerBSMultiTime>() != null)
+               {
+                   soldierObj = Instantiate(GameObject.Find("GameController").GetComponent<GameControllerBSMultiTime>().soldier, new Vector3(x, 0.1f, z), new Quaternion(0, 0, 0, 0));
+               }
+       */
+        soldierObj = Instantiate(soldier, new Vector3(x, 0.1f, z), new Quaternion(0, 0, 0, 0));
+
+        soldierObj.SetActive(true);
+
+        //NetworkServer.Spawn(soldierObj);
+
+        soldierObj.GetComponent<BombDefuserMulti>().helicopter = this.gameObject;
 
         userend = false;
         if (isLocalPlayer)
         {
             localplayer = true;
+
+            Camera.main.gameObject.SetActive(false);
+            maincam.SetActive(true);
             GameMetaScript gmc = GameObject.Find("GameMetaData").GetComponent<GameMetaScript>();
 
             if(gmc.gameoverid=="1")
@@ -71,9 +119,26 @@ public class HeliControlMulti : NetworkBehaviour {
         rigidbody = this.GetComponent<Rigidbody>();
     }
 
+    void OnEnable()
+    {
+        if (isLocalPlayer)
+        {
+            Camera.main.gameObject.SetActive(false);
+            maincam.SetActive(true);
+        }
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
+
+
+        if (transform.position.y < 2)
+        {
+            transform.position = new Vector3(transform.position.x, 2, transform.position.z);
+        }
+
+
         rigidbody = this.GetComponent<Rigidbody>();
 
         if (isLocalPlayer)
@@ -93,29 +158,43 @@ public class HeliControlMulti : NetworkBehaviour {
 
         }
 
-        if (transform.position.y<2)
-        {
-            transform.position = new Vector3(transform.position.x, 2, transform.position.z);
-        }
+
 
         if (!isLocalPlayer)
         {
-            if(this.transform.Find("Main Camera")!=null)
+            if (this.transform.Find("Main Camera")!=null)
             this.transform.Find("Main Camera").gameObject.SetActive(false);
             return;
         }
 
-        if(Camera.main.gameObject.GetComponent<PlayerControllerBSMulti>()==null)
+        if((GameObject.Find("GameController").GetComponent<FinalOutComeBSMultiTask>() != null && GameObject.Find("GameController").GetComponent<FinalOutComeBSMultiTask>().finish) || (GameObject.Find("GameController").GetComponent<FinalOutcomeBSMultiTime>() != null && GameObject.Find("GameController").GetComponent<FinalOutcomeBSMultiTime>().finish))
+        {
+            return;
+        }
+
+  /*      if(Camera.main.gameObject.GetComponent<PlayerControllerBSMulti>()==null)
         {
             if(this.transform.Find("Main Camera")!= null)
             this.transform.Find("Main Camera").gameObject.SetActive(true);
         }
 
-        this.GetComponentInChildren<Camera>().gameObject.SetActive(true);
+        this.GetComponentInChildren<Camera>().gameObject.SetActive(true);*/
 
         if (Input.GetKey(KeyCode.Space))
         {
+            if (isServer)
+            {
+                RpcChangeEngineStatus(true);
+            }
+            else
+            {
+                CmdChangeEngineStatus(true);
+            }
+
             this.gameObject.GetComponent<AH_AnimationHelper>().engineOn = true;
+
+                //engineOn = true;
+            
 
             if (this.gameObject.GetComponent<AH_AnimationHelper>().currentRPM >= 0.8)
                 transform.position += Vector3.up * 5.0f * Time.deltaTime;
@@ -159,5 +238,17 @@ public class HeliControlMulti : NetworkBehaviour {
 
         }
 
+    }
+
+    [Command]
+    public void CmdChangeEngineStatus(bool engineOn)
+    {
+        this.gameObject.GetComponent<AH_AnimationHelper>().engineOn = engineOn;
+    }
+
+    [ClientRpc]
+    public void RpcChangeEngineStatus(bool engineOn)
+    {
+        this.gameObject.GetComponent<AH_AnimationHelper>().engineOn = engineOn;
     }
 }

@@ -1,6 +1,6 @@
 ﻿<Properties StartupItem="MMO Crowd Evacuation Game.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\GameControllerCrowdEvac.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\DistanceCheckerMulti.cs">
     <Files>
       <File FileName="Assets\Core\Scripts\Steering\UnitySteeringController.cs" Line="1" Column="1" />
       <File FileName="Assets\PlayerController1.cs" Line="1" Column="1" />
@@ -14,6 +14,8 @@
       <File FileName="Assets\QuadraPlayerController.cs" Line="1" Column="1" />
       <File FileName="Assets\NetworkLobbyHook.cs" Line="1" Column="1" />
       <File FileName="Assets\GameControllerCrowdEvac.cs" Line="1" Column="1" />
+      <File FileName="Assets\HeliControlMulti.cs" Line="1" Column="1" />
+      <File FileName="Assets\DistanceCheckerMulti.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

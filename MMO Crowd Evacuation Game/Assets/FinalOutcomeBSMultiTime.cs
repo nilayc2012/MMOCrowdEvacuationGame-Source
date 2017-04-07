@@ -18,21 +18,21 @@ public class FinalOutcomeBSMultiTime : MonoBehaviour {
 
     public GameObject diffusedPanel;
     public bool finish;
-
+    public bool start;
     GameMetaScript gmc;
     // Use this for initialization
     void Start()
     {
         gmc = GameObject.Find("GameMetaData").GetComponent<GameMetaScript>();
         finish = false;
-
+        start = false;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
 
-        if (this.GetComponent<GameControllerBSMultiTime>().time == 0)
+        if (this.GetComponent<GameControllerBSMultiTime>().time == 0 )
         {
             diffusedPanel.SetActive(false);
             GameObject.Find("DataTracker").GetComponent<DataTracker>().end = true;

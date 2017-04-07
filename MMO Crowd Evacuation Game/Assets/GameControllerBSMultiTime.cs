@@ -5,12 +5,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Networking;
 
+public class RegionPos : IEquatable<RegionPos>
+{
+    public float x, y, z;
+
+    public RegionPos()
+    {
+
+    }
+
+    public RegionPos(float x,float y,float z)
+    {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+
+    public bool Equals(RegionPos other)
+    {
+        return this.x == other.x &&
+               this.y == other.y &&
+               this.z == other.z;
+    }
+
+}
+
 public class GameControllerBSMultiTime : NetworkBehaviour {
 
     public GameObject bombobj;
     public Text bombcounttext;
 
-    int bombcount = 3;
+    //int bombcount = 3;
 
     public Text minute, sec;
 
@@ -18,22 +43,39 @@ public class GameControllerBSMultiTime : NetworkBehaviour {
     public int time;
     int count;
 
-    public bool start;
+    //public bool start;
 
     public GameObject soldier;
 
     GameMetaScript gmc;
 
     public GameObject localplayerobj = null;
+
+    public List<RegionPos> bomPosis;
     // Use this for initialization
     void Start()
     {
 
-        RenderSettings.fog = false;
+        bomPosis = new List<RegionPos>();
+        GameObject[] regions = GameObject.FindGameObjectsWithTag("region");
 
+        foreach (GameObject region in regions)
+        {
+                bomPosis.Add(new RegionPos(region.transform.position.x,region.transform.position. y,region.transform.position. z));
+     
+        }
+
+        foreach(GameObject bomb in GameObject.FindGameObjectsWithTag("bomb"))
+        {
+            bomPosis.Remove(new RegionPos(bomb.GetComponent<BombDetectorMulti>().regionx, bomb.GetComponent<BombDetectorMulti>().regiony, bomb.GetComponent<BombDetectorMulti>().regionz));
+        }
+
+
+        RenderSettings.fog = false;
+        time = 200;
         gmc = GameObject.Find("GameMetaData").GetComponent<GameMetaScript>();
 
-        if (gmc.ctypeid != "2" && gmc.ctypeid != "3")
+   /*     if (gmc.ctypeid != "2" && gmc.ctypeid != "3")
         {
             start = true;
         }
@@ -41,8 +83,8 @@ public class GameControllerBSMultiTime : NetworkBehaviour {
         {
             start = false;
         }
-
-
+*/
+/*
         GameObject[] agents = GameObject.FindGameObjectsWithTag("drone");
 
         if (gmc.diffid == "1")
@@ -75,89 +117,7 @@ public class GameControllerBSMultiTime : NetworkBehaviour {
             bomb.transform.position = new Vector3(bombpos.transform.position.x, 0.1f, bombpos.transform.position.z);
 
             bomb.SetActive(true);
-        }
-
-        bombcounttext.text = bombcount.ToString();
-
-        Vector3 startpos = GameObject.Find("helipad").transform.position;
-
-
-        GameObject[] bombs = GameObject.FindGameObjectsWithTag("bomb");
-        float[] distances = new float[bombs.Length];
-        Vector3 temp = new Vector3(startpos.x, startpos.y, startpos.z);
-
-        int index1 = 0;
-        List<GameObject> bomblist = new List<GameObject>();
-
-        float totaldist = 0;
-        float mindist = Single.MaxValue;
-        int minindex = 0;
-        foreach (GameObject bomb in bombs)
-        {
-            bomblist.Add(bomb);
-            temp.y = 0.1f;
-
-            if (mindist > Vector3.Distance(temp, bomb.transform.GetChild(0).position))
-            {
-                mindist = Vector3.Distance(temp, bomb.transform.GetChild(0).position);
-                minindex = index1;
-            }
-            index1++;
-        }
-
-        totaldist = totaldist + mindist;
-        temp = bombs[minindex].transform.GetChild(0).position;
-        bomblist.Remove(bombs[minindex]);
-
-        while (bomblist.Count != 0)
-        {
-            mindist = Single.MaxValue;
-            index1 = 0;
-            foreach (GameObject bomb in bomblist)
-            {
-                if (mindist > Vector3.Distance(temp, bomb.transform.GetChild(0).position))
-                {
-                    mindist = Vector3.Distance(temp, bomb.transform.GetChild(0).position);
-                    minindex = index1;
-                }
-                index1++;
-            }
-
-            totaldist = totaldist + mindist;
-            temp = bombs[minindex].transform.GetChild(0).position;
-            bomblist.Remove(bombs[minindex]);
-        }
-
-        if (gmc.ruleid == "4")
-        {
-            if (gmc.diffid == "1")
-            {
-                time = (int)totaldist * 15;
-            }
-            else if (gmc.diffid == "2")
-            {
-                time = (int)totaldist * 10;
-            }
-            else
-            {
-                time = (int)totaldist * 5;
-            }
-        }
-        else if (gmc.ruleid == "3")
-        {
-            if (gmc.diffid == "1")
-            {
-                time = (int)totaldist * 30;
-            }
-            else if (gmc.diffid == "2")
-            {
-                time = (int)totaldist * 20;
-            }
-            else
-            {
-                time = (int)totaldist * 10;
-            }
-        }
+        }*/
 
 
         count = 0;
@@ -190,12 +150,40 @@ public class GameControllerBSMultiTime : NetworkBehaviour {
     void FixedUpdate()
     {
 
-        if (!this.GetComponent<FinalOutcomeBSMultiTime>().finish && start)
+        if (!this.GetComponent<FinalOutcomeBSMultiTime>().finish )
         {
 
             GameObject[] bombs = GameObject.FindGameObjectsWithTag("bomb");
 
-            bombcounttext.text = bombs.Length.ToString();
+            if (localplayerobj != null)
+            {
+                GameMetaScript gmc = GameObject.Find("GameMetaData").GetComponent<GameMetaScript>();
+
+                if (gmc.ctypeid == "1" || gmc.ctypeid == "5")
+                {
+                    bombcounttext.text = localplayerobj.GetComponent<PrizeCounter>().ballcount.ToString();
+                }
+                else if (gmc.ctypeid == "2")
+                {
+                    if (localplayerobj.gameObject.GetComponent<PrizeCounter>().teamno == 1)
+                    {
+                        bombcounttext.text = GameObject.Find("TeamCounter").GetComponent<TeamCounter>().ballcount1.ToString();
+
+                    }
+                    else
+                    {
+                        bombcounttext.text = GameObject.Find("TeamCounter").GetComponent<TeamCounter>().ballcount2.ToString();
+                    }
+
+                }
+                else if (gmc.ctypeid == "3")
+                {
+                    bombcounttext.text = GameObject.Find("TeamCounter").GetComponent<TeamCounter>().ballcount1.ToString();
+                }
+
+
+            }
+            //bombcounttext.text = bombs.Length.ToString();
 
             count++;
 
@@ -227,4 +215,5 @@ public class GameControllerBSMultiTime : NetworkBehaviour {
 
         }
     }
+
 }

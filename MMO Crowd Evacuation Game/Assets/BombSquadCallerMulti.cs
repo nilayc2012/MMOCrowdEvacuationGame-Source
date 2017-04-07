@@ -32,14 +32,14 @@ public class BombSquadCallerMulti : MonoBehaviour {
         GameObject.Find("GameController").GetComponent<GameControllerBSMulti>().localplayerobj.GetComponent<DistanceCheckerMulti>().enabled = false;
         distantPanel.SetActive(false);
         GameObject.Find("GameController").GetComponent<GameControllerBSMulti>().localplayerobj.GetComponent<HeliControlMulti>().enabled = false;
-        GameObject.Find("GameController").GetComponent<GameControllerBSMulti>().localplayerobj.transform.FindChild("Main Camera").gameObject.SetActive(false);
+        //GameObject.Find("GameController").GetComponent<GameControllerBSMulti>().localplayerobj.transform.FindChild("Main Camera").gameObject.SetActive(false);
 
-
+       // GameObject.Find("GameController").GetComponent<GameControllerBSMulti>().localplayerobj.GetComponent<GameStateChecker>().initiateSquadCall();
         approachPanel.SetActive(true);
-        approachPanel.GetComponent<SoldierApproachMulti>().enabled = true;
 
-        Camera.main.gameObject.SetActive(false);
-        GameObject.Find("GameController").GetComponent<GameControllerBSMulti>().localplayerobj.GetComponent<HeliControlMulti>().soldierObj.transform.Find("Main Camera").gameObject.SetActive(true);
-        //BombDiffuser.helicopter.GetComponent<HeliControl>().helicam.SetActive(false);
+
+        approachPanel.GetComponent<SoldierApproachMulti>().detectedbomb = GameObject.Find("GameController").GetComponent<GameControllerBSMulti>().localplayerobj.GetComponent<HeliControlMulti>().detectedBomb;
+        approachPanel.GetComponent<SoldierApproachMulti>().soldier = GameObject.Find("GameController").GetComponent<GameControllerBSMulti>().localplayerobj.GetComponent<HeliControlMulti>().soldierObj;
+        approachPanel.GetComponent<SoldierApproachMulti>().enabled = true;
     }
 }

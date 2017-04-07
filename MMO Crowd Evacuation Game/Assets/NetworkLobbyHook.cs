@@ -14,7 +14,7 @@ public class NetworkLobbyHook : LobbyHook {
         GameMetaScript gmc = GameObject.Find("GameMetaData").GetComponent<GameMetaScript>();
         if(gmc.ruleid=="3"|| gmc.ruleid == "4")
         {
-            if(gmc.ruleid == "3")
+            if(gmc.ruleid == "4")
             {
                 HeliControlMulti localplayer = gamePlayer.GetComponent<HeliControlMulti>();
 

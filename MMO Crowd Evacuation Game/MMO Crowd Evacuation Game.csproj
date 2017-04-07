@@ -108,12 +108,16 @@
     <Compile Include="Assets\ArmyNavigationController.cs" />
     <Compile Include="Assets\ArmyRayPointTracker.cs" />
     <Compile Include="Assets\ArmyUnit.cs" />
+    <Compile Include="Assets\BombDefuseMultiTime.cs" />
     <Compile Include="Assets\BombDefuserMulti.cs" />
     <Compile Include="Assets\BombDetector.cs" />
     <Compile Include="Assets\BombDetectorMulti.cs" />
     <Compile Include="Assets\BombDiffuser.cs" />
+    <Compile Include="Assets\BombSpawner.cs" />
+    <Compile Include="Assets\BombSpawnerTime.cs" />
     <Compile Include="Assets\BombSquadCaller.cs" />
     <Compile Include="Assets\BombSquadCallerMulti.cs" />
+    <Compile Include="Assets\BombSquadCallerMultiTime.cs" />
     <Compile Include="Assets\BuildingTracker.cs" />
     <Compile Include="Assets\ButtonTasks.cs" />
     <Compile Include="Assets\CameraChoice.cs" />
@@ -318,6 +322,7 @@
     <Compile Include="Assets\GameControllerTaskBasedOneOnOne.cs" />
     <Compile Include="Assets\GameInfoScript.cs" />
     <Compile Include="Assets\GameMetaScript.cs" />
+    <Compile Include="Assets\GameStateChecker.cs" />
     <Compile Include="Assets\GameTracker.cs" />
     <Compile Include="Assets\GameTrackerMulti.cs" />
     <Compile Include="Assets\GameTrackerMultiCrowd.cs" />
@@ -353,6 +358,7 @@
     <Compile Include="Assets\NetworkLobbyHook.cs" />
     <Compile Include="Assets\OpenControl.cs" />
     <Compile Include="Assets\ParkDrone.cs" />
+    <Compile Include="Assets\ParkDroneMulti.cs" />
     <Compile Include="Assets\PlayerController1.cs" />
     <Compile Include="Assets\PlayerController1BS.cs" />
     <Compile Include="Assets\PlayerController1single.cs" />
@@ -379,6 +385,7 @@
     <Compile Include="Assets\SetGameMetaScript.cs" />
     <Compile Include="Assets\SoldierApproach.cs" />
     <Compile Include="Assets\SoldierApproachMulti.cs" />
+    <Compile Include="Assets\SoldierSpawner.cs" />
     <Compile Include="Assets\SpawnPosGenerator.cs" />
     <Compile Include="Assets\SquadPresenceChecker.cs" />
     <Compile Include="Assets\StartGame.cs" />

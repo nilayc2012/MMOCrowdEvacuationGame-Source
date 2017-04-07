@@ -4,8 +4,9 @@ using System;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 
-public class DistanceCheckerMulti : MonoBehaviour {
+public class DistanceCheckerMulti : NetworkBehaviour {
 
     public Text distancetext;
     GameObject[] bombs;
@@ -19,26 +20,34 @@ public class DistanceCheckerMulti : MonoBehaviour {
     void FixedUpdate()
     {
 
-        bombs = GameObject.FindGameObjectsWithTag("bomb");
-        int[] distances = new int[bombs.Length];
-        Vector3 temp = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-
-        int index = 0;
-
-        foreach (GameObject bomb in bombs)
+        if (isLocalPlayer)
         {
-            if (!bomb.GetComponent<BombDetectorMulti>().detected && !bomb.GetComponent<BombDetectorMulti>().isDiffused)
+            bombs = GameObject.FindGameObjectsWithTag("bomb");
+            int[] distances = new int[bombs.Length];
+            Vector3 temp = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+
+            int index = 0;
+            int count = 0;
+
+            foreach (GameObject bomb in bombs)
             {
-                temp.y = 0.1f;
-                distances[index++] = (int)Vector3.Distance(temp, bomb.transform.GetChild(0).position);
+                if (!bomb.GetComponent<BombDetectorMulti>().detected && !bomb.GetComponent<BombDetectorMulti>().isDiffused)
+                {
+                    temp.y = 0.1f;
+                    distances[index++] = (int)Vector3.Distance(temp, bomb.transform.GetChild(0).position);
+                    count++;
+                }
+                else
+                {
+                    distances[index++] = Int32.MaxValue;
+                }
             }
+
+            if(count!=0)
+            distancetext.text = distances.Min() + " m";
             else
-            {
-                distances[index++] = Int32.MaxValue;
-            }
+                distancetext.text = "No More Bombs to Defuse";
+
         }
-
-   
-
     }
 }

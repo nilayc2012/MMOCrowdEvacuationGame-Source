@@ -8,7 +8,8 @@ public class PrizeCounter : NetworkBehaviour {
     GameMetaScript gmc;
     public Vector3 startpos;
 
-    public int ballcount=0;
+    [SyncVar]
+    public int ballcount;
 
     [SyncVar]
     public int teamno;

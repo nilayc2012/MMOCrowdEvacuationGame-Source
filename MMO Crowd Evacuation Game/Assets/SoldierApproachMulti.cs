@@ -12,8 +12,9 @@ public class SoldierApproachMulti : MonoBehaviour {
     public bool complete;
 
     public GameObject detectedbomb;
+    public GameObject soldier;
     int multiplier;
-    float maxDist;
+    float dist;
 
     //public GameObject maincam;
     // Use this for initialization
@@ -25,23 +26,7 @@ public class SoldierApproachMulti : MonoBehaviour {
 
         multiplier = 9;
 
-        foreach (GameObject bomb in GameObject.FindGameObjectsWithTag("bomb"))
-        {
-            if (bomb.GetComponent<BombDetectorMulti>().detected)
-            {
-                detectedbomb = bomb;
-            }
-        }
-
-        float[] distances = new float[GameObject.FindGameObjectsWithTag("soldier").Length];
-        int i = 0;
-
-        foreach (GameObject soldier in GameObject.FindGameObjectsWithTag("soldier"))
-        {
-            distances[i++] = Vector3.Distance(soldier.transform.position, detectedbomb.transform.position);
-        }
-
-        maxDist = distances.Max();
+        dist = Vector3.Distance(soldier.transform.position, detectedbomb.transform.position);
 
     }
 
@@ -52,24 +37,11 @@ public class SoldierApproachMulti : MonoBehaviour {
 
         multiplier = 9;
 
-        foreach (GameObject bomb in GameObject.FindGameObjectsWithTag("bomb"))
-        {
-            if (bomb.GetComponent<BombDetectorMulti>().detected)
-            {
-                detectedbomb = bomb;
-            }
-        }
+        dist = Vector3.Distance(soldier.transform.position, detectedbomb.transform.position);
 
-        float[] distances = new float[GameObject.FindGameObjectsWithTag("soldier").Length];
-        int i = 0;
-
-        foreach (GameObject soldier in GameObject.FindGameObjectsWithTag("soldier"))
-        {
-            distances[i++] = Vector3.Distance(soldier.transform.position, detectedbomb.transform.position);
-        }
-
-        maxDist = distances.Max();
     }
+
+
 
     // Update is called once per frame
     void FixedUpdate()
@@ -77,19 +49,7 @@ public class SoldierApproachMulti : MonoBehaviour {
         if (complete)
         {
 
-            float[] distances = new float[GameObject.FindGameObjectsWithTag("soldier").Length];
-            int i = 0;
-
-            int solcount = 0;
-            foreach (GameObject soldier in GameObject.FindGameObjectsWithTag("soldier"))
-            {
-                if (!soldier.GetComponent<NavigationControllerBSMulti>().isHere)
-                {
-                    solcount++;
-                    distances[i++] = Vector3.Distance(soldier.transform.position, detectedbomb.transform.position);
-                }
-            }
-            if (solcount == 0)
+            if (soldier.GetComponent<NavigationControllerBSMulti>().isHere)
             {
                 foreach (GameObject bar in GameObject.FindGameObjectsWithTag("status1"))
                 {
@@ -109,9 +69,9 @@ public class SoldierApproachMulti : MonoBehaviour {
 
 
 
-                float tempmaxDist = distances.Max();
+                float tempmaxDist = Vector3.Distance(soldier.transform.position, detectedbomb.transform.position); 
 
-                if (tempmaxDist <= (multiplier * (maxDist / 9)))
+                if (tempmaxDist <= (multiplier * (dist / 9)))
                 {
                     statusbars[index++].SetActive(true);
                     multiplier--;
@@ -123,7 +83,7 @@ public class SoldierApproachMulti : MonoBehaviour {
                         }
                         complete = false;
 
-                        panel2.SetActive(false);
+                        panel2.GetComponent<SoldierApproachMulti>().enabled = false;
                     }
 
                 }
@@ -131,5 +91,10 @@ public class SoldierApproachMulti : MonoBehaviour {
 
         }
 
+    }
+
+    void OnDisable()
+    {
+        panel2.SetActive(false);
     }
 }

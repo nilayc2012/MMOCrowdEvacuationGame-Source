@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class ReachedCheckerMulti : MonoBehaviour {
+public class ReachedCheckerMulti : NetworkBehaviour {
 
     void Start()
     {
@@ -12,11 +13,13 @@ public class ReachedCheckerMulti : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-
-        if (this.GetComponent<NavigationControllerBSMulti>().isHere && this.GetComponent<NavigationControllerBSMulti>().enabled)
+        if (isLocalPlayer)
         {
-            this.GetComponent<NavigationControllerBSMulti>().enabled = false;
-            this.GetComponent<NavigationControllerBSMulti>().isHere = false;
+            if (this.GetComponent<NavigationControllerBSMulti>().isHere && this.GetComponent<NavigationControllerBSMulti>().enabled)
+            {
+                this.GetComponent<NavigationControllerBSMulti>().enabled = false;
+                this.GetComponent<NavigationControllerBSMulti>().isHere = false;
+            }
         }
     }
 }

@@ -26,6 +26,7 @@ public class FinalOutComeBSMultiTask : MonoBehaviour {
     {
         gmc = GameObject.Find("GameMetaData").GetComponent<GameMetaScript>();
         finish = false;
+        
 
     }
 
@@ -60,9 +61,10 @@ public class FinalOutComeBSMultiTask : MonoBehaviour {
                         bestcount = agent.GetComponent<PrizeCounter>().ballcount;
                         winnername = agent.GetComponent<HeliControlMulti>().pname;
                     }
-                    else if (agent.GetComponent<PrizeCounter>().ballcount == bestcount && bestcount != 0)
+                    else 
                     {
-                        winnername = winnername + " and " + agent.GetComponent<HeliControlMulti>().pname;
+                        if (agent.GetComponent<PrizeCounter>().ballcount == bestcount && bestcount != 0)
+                            winnername = winnername + " and " + agent.GetComponent<HeliControlMulti>().pname;
                     }
                 }
                 winner.text = winnername;
@@ -74,7 +76,7 @@ public class FinalOutComeBSMultiTask : MonoBehaviour {
             {
 
                 List<GameObject> sortedlist = GameObject.FindGameObjectsWithTag("drone").ToList<GameObject>();
-                sortedlist = sortedlist.OrderBy(o => o.GetComponent<PrizeCounter>().ballcount).ToList<GameObject>();
+                sortedlist = sortedlist.OrderByDescending(o => o.GetComponent<PrizeCounter>().ballcount).ToList<GameObject>();
                 foreach (GameObject agent in sortedlist)
                 {
                     //data tracker///////////////////////////
